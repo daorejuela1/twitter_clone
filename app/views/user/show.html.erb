@@ -1,0 +1,11 @@
+<div id="user_profile" class="text-center" >
+  <h1 class="display-4">Home page</h1>
+  <%= link_to @user.avatar do %>
+  <picture>
+    <%= image_tag @user.avatar.variant(resize_to_fill: [200, 200], vignette: 0).processed %>
+  </picture>
+<% end %>
+  <h2><%= @user.fullname %></h2>
+  <h3>@<%= @user.username %></h3>
+  <p><%= @user.description %></p>
+</div>
