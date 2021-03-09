@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+a.nav_logo:hover { 
+	background-color: $bodyBackground; 
+	text-decoration: none; 
+}
+
+body {
+	padding-bottom: 70px;
+}
+.navbar {
+	height: 70px;
+}
