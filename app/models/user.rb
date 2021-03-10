@@ -12,6 +12,8 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: { case_sensitive: false }
   validate :validate_email_layers
 
+  has_many :tweets, dependent: :destroy
+
   private
   def set_default_image
     self.avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default.png')), 
