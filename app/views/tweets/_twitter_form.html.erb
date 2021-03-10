@@ -18,6 +18,7 @@
     <%= form.file_field :image, accept: 'image/png, image/jpeg', class: "form-control file_upload" %>
     <small id="avatar" class="form-text text-muted">Upload a picture that fits for your tweet.</small>
   </div>
- <%= form.submit "Create tweet", class: "btn btn-success btn-lg btn-block" %>
+ <%= form.submit "Create tweet", class: "btn btn-primary btn-lg btn-block" %>
+ <%= link_to "Back", :back, class: "btn btn-link btn-lg" %>
 
 <% end %>
