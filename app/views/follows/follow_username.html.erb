@@ -1,0 +1,13 @@
+<h1 class="display-4 text-center">Follow another user</h1>
+<%= form_with url: follow_username_path, method: :put do |form| %>
+  <div class="form-group">
+    <%= form.label :username %>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">@</span>
+      </div>
+      <%= form.text_field :username, class: "form-control", placeholder: "johnsmit" %>
+    </div>
+  </div>
+ <%= form.submit "Follow user", class: "btn btn-success btn-lg btn-block" %>
+<%end%>

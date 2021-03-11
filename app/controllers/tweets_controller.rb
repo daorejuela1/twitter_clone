@@ -1,4 +1,6 @@
 class TweetsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @tweet = current_user.tweets.new()
   end

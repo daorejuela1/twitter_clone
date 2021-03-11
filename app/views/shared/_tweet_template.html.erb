@@ -3,7 +3,7 @@
     <%= link_to user.avatar do %>
       <%= image_tag user.avatar.variant(resize_to_fill: [40, 40]).processed, class:"d-inline text-justify" %>
     <% end %>
-    <p class="card-title"><p class="font-weight-bold d-inline"><%= user.fullname %></p>, <%= link_to("@"+current_user.username, user_path(user.username)) %> - <%= tweet.created_at.strftime("%Y-%m-%d - %H:%M") %></p>
+    <p class="card-title"><p class="font-weight-bold d-inline"><%= user.fullname %></p>, <%= link_to("@"+user.username, user_path(user.username)) %> - <%= tweet.created_at.strftime("%Y-%m-%d - %H:%M") %></p>
     <div class="dropdown-divider"></div>
     <p class="card-text text-justify"><%= tweet.message %> </p>
   </div>

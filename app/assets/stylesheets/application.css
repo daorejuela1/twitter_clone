@@ -21,6 +21,13 @@ a.nav_logo:hover {
 body {
 	padding-bottom: 70px;
 }
+
 .navbar {
 	height: 70px;
+}
+
+img.img_upload_field {
+	width: 100px;
+	height: 100px;
+	display: none;
 }
