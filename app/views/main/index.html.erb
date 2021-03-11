@@ -1,1 +1,6 @@
-<h1>Hello world</h1>
+<% if user_signed_in? %>
+  <h1 class ="display-4 text-center">Last tweets from people you follow</h1>
+<%else%>
+  <h1 class ="display-4 text-center">Our recent tweets</h1>
+<%end %>
+<%= render partial: "shared/tweet_list", locals: {tweets: @tweets}%>

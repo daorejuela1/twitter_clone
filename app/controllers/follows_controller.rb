@@ -15,8 +15,10 @@ class FollowsController < ApplicationController
       redirect_to request.referer, alert: 'That user does not exist!'
     elsif current_user.following.include? @user
       redirect_to request.referer, alert: "You are already following @#{@user.username}"
+    elsif current_user == @user
+      redirect_to request.referer, alert: "You can not follow yourself"
     else
-    @user.follower_relationships.create(user_id: current_user.id)
+    @user.follower_relationships.create!(user_id: current_user.id)
     redirect_to user_path(@user.username), notice: "You are now following @#{@user.username}"
     end
   end

@@ -5,7 +5,7 @@
   <h1 class="display-4 text-center"> <%= @user.username %> is following </h1>
 <% end %>
 <% if !@following.nil? && @following.length > 0%>
-<%= render partial: "shared/user_list", locals: {users: @following}%>
+  <%= render partial: "shared/user_list", locals: {users: @following}%>
 <% else %>
-  <h1 class="display-4 text-center"> <%= @user.username %> Have not follow anybody yet </h1>
+  <h1 class="display-4 text-center"> Nobody yet </h1>
 <% end %>
