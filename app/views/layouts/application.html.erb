@@ -10,8 +10,8 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag asset_path('Logo.png') %>
   </head>
-  <%= render partial: "shared/navbar" %>
   <body>
+  <%= render partial: "shared/navbar" %>
     <% if alert.present? %>
       <div class="alert alert-warning" role="alert">
         <p><%= alert %> </p>
