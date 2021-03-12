@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   VALID_USERNAME_REGEX = /\A[a-zA-Z0-9]*\z/.freeze
 
+  attr_accessor :login
   before_create :set_default_image
   before_create :correct_file_mime_type
   devise :database_authenticatable, :registerable,
@@ -12,7 +13,15 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: { case_sensitive: false }
   validate :validate_email_layers
 
-  has_many :tweets, dependent: :destroy
+  has_many :tweets, dependent: :delete_all
+
+  has_many :follows, dependent: :destroy
+
+  has_many :follower_relationships, foreign_key: :following_id, class_name: 'Follow'
+  has_many :followers, through: :follower_relationships, source: :follower
+
+  has_many :following_relationships, foreign_key: :user_id, class_name: 'Follow'
+  has_many :following, through: :following_relationships, source: :following
 
   private
   def set_default_image
@@ -51,5 +60,12 @@ class User < ApplicationRecord
     @login || self.username || self.email
   end
   # Uses Truemail Gem to check if the email really exist
-end
+  def self.search(search)
+    if search
+      find(:all, :conditions => ['username LIKE ?', "%#{search}%"])
+    else
+      find(:all)
+    end
+  end
 
+end

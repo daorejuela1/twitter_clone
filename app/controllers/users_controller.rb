@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :get_user, only: [:show]
+  before_action :authenticate_user!, only: [:edit]
 
   def show
     @tweets = @user.tweets.paginate(page: params[:page], per_page: 10).order('created_at DESC')

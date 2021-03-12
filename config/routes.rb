@@ -6,4 +6,10 @@ Rails.application.routes.draw do
   patch '/:username/edit', to: 'users#edit', as: 'user_edit'
   get '/compose/tweet', to: 'tweets#new'
   post "/compose/tweet/post", to: "tweets#create"
+  get '/:username/followers', to: 'follows#index_followers', as: 'user_followers'
+  get '/:username/following', to: 'follows#index_following', as: 'user_following'
+  post '/:username/follow', to: 'follows#create', as: 'follow_user'
+  post '/:username/unfollow', to: 'follows#destroy', as: 'unfollow_user'
+  get '/follow/user', to: 'follows#follow_username', as: 'follow_username'
+  put '/follow/user', to: 'follows#create'
 end

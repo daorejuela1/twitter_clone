@@ -10,6 +10,7 @@
     <div class="align-middle collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto navbar-right">
         <% if user_signed_in? %>
+          <li><%= image_tag current_user.avatar.variant(resize_to_fill: [40, 40]).processed, class:"d-inline text-justify" %></li>
           <li>
           <p class="navbar-brand">Hello, <%= link_to("@"+current_user.username, user_path(current_user.username))%>
           </p>
