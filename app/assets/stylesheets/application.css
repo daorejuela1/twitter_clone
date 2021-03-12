@@ -14,7 +14,7 @@
  *= require_self
  */
 a.nav_logo:hover { 
-	background-color: $bodyBackground; 
+	background-color: white; 
 	text-decoration: none; 
 }
 
