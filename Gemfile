@@ -25,7 +25,7 @@ gem 'image_processing', '~> 1.2'
 # Gem to check email values
 gem 'truemail'
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.4.4', require: false
+gem 'bootsnap', '>= 1.4.4'
 # Gem to handle pagination
 gem 'will_paginate', '~> 3.1.0'
 # Use Postgres instead of sqlite
