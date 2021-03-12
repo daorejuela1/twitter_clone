@@ -1,5 +1,5 @@
 <% tweets.each do |tweet| %>
-  <%= render partial: "shared/tweet_template", locals: {user: tweet.user, tweet: tweet} %>
+  <%= render partial: "tweets/tweet_template", locals: {user: tweet.user, tweet: tweet} %>
 <% end %>
 <div class="apple_pagination">
   <div>

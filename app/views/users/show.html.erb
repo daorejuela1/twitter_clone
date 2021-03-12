@@ -8,23 +8,12 @@
   <h2><%= @user.fullname %></h2>
   <h3>@<%= @user.username %></h3>
   <p><%= @user.description %></p>
-<table class="table table-primary">
-  <tr>
-    <th scope="col"> <%= link_to 'Followers',user_followers_path %> </th>
-  <%= link_to @user.avatar do %>
-    <th scope="col"> <%= link_to 'Following',user_following_path %> </th>
-  <% end %>
-  </tr>
-  <tr>
-    <td> <%= link_to @user.followers.length, user_followers_path %> </td>
-    <td><%= link_to @user.following.length, user_following_path %></td>
-  </tr>
-</table>
-    <%= render partial: "shared/follow_button", locals: {user: @user}%>
+    <%= render partial: "follows/follow_table", locals: {user: @user} %>
+    <%= render partial: "follows/follow_button", locals: {user: @user} %>
   <%= link_to "New Tweet", compose_tweet_path, class: "btn btn-primary btn-lg m-3" if user_signed_in? && current_user == @user %>
   <% if @user.tweets.nil? %>
     <h1 class="display-4 text-center">Click on create tweet to start</h1>
   <%else%>
-    <%= render partial: "shared/tweet_list", locals: {tweets: @tweets}%>
+    <%= render partial: "tweets/tweet_list", locals: {tweets: @tweets}%>
   <%end%>
 </div>
