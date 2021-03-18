@@ -6,5 +6,5 @@
 <% if !@followers.nil? %>
   <%= render partial: "users/user_list", locals: {users: @followers}%>
 <% else %>
-  <h1 class="display-4 text-center"> Nobody has follow <%= @user.username %> yet </h1>
+  <h1 class="display-4 text-center"> Nobody yet </h1>
 <% end %>
