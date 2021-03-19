@@ -7,13 +7,14 @@ class FollowingController < ApplicationController
   end
 
   def new
-    @new_rel = current_user.following_relationships.new()
+    @follow = current_user.following_relationships.new()
   end
 
   def create
-    @new_rel = current_user.following_relationships.new(following_id: params[:follow][:username])
-    if @new_rel.save
-      user = User.find_by(username: params[:follow][:username])
+    byebug
+    @follow = current_user.following_relationships.new(following_id: params[:username])
+    if @follow.save
+      user = User.find_by(username: params[:username])
       redirect_to user_path(user.username), notice: "You are now following @#{user.username}"
     else
       render :new

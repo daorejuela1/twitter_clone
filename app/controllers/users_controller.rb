@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     @tweets = @user.tweets.paginate(page: params[:page], per_page: 10).order('created_at DESC')
   end
 
-  def edit
+  def update
     @user = current_user
     if @user.update(user_params)
       redirect_to user_path(current_user.username), notice: 'Updated succesfully'

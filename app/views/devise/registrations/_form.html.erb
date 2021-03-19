@@ -1,5 +1,5 @@
 <h2 class="display-5 text-center">Edit public information</h2>
-<%= form_with url: url, model: user do |form| %>
+<%= form_with url: url, model: user, method: :patch do |form| %>
   <% if user.errors.any? %>
     <div class="alert alert-danger">
       <% user.errors.full_messages.each do |message| %>
