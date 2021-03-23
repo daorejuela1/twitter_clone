@@ -11,7 +11,6 @@ class FollowingController < ApplicationController
   end
 
   def create
-    byebug
     @follow = current_user.following_relationships.new(following_id: params[:username])
     if @follow.save
       user = User.find_by(username: params[:username])
