@@ -8,9 +8,9 @@
   <h2><%= @user.fullname %></h2>
   <h3>@<%= @user.username %></h3>
   <p><%= @user.description %></p>
-    <%= render partial: "follows/follow_table", locals: {user: @user} %>
-    <%= render partial: "follows/follow_button", locals: {user: @user} %>
-  <%= link_to "New Tweet", compose_tweet_path, class: "btn btn-primary btn-lg m-3" if user_signed_in? && current_user == @user %>
+    <%= render partial: "following/following_table", locals: {user: @user} %>
+    <%= render partial: "following/following_button", locals: {user: @user} %>
+  <%= link_to "New Tweet", new_tweet_path, class: "btn btn-primary btn-lg m-3" if user_signed_in? && current_user == @user %>
   <% if @user.tweets.nil? %>
     <h1 class="display-4 text-center">Click on create tweet to start</h1>
   <%else%>

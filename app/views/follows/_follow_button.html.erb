@@ -1,7 +1,0 @@
-<% if user_signed_in? %>
-  <% if (current_user != user) && (!current_user.following.include?(user)) %>
-    <%= link_to "Follow", follow_user_path(user.username), class: "btn btn-primary btn-lg m-3", method: :post %>
-    <% elsif (current_user.following.include?(user)) %>
-    <%= link_to "Unfollow", unfollow_user_path(user.username), class: "btn btn-danger btn-lg m-3", method: :post %>
-  <% end %>
-<% end %>
